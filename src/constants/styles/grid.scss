@@ -1,0 +1,64 @@
+.w10 { width: 10%; }
+.w20 { width: 20%; }
+.w25 { width: 25%; }
+.w33 { width: 33.33333333333%; }
+.w40 { width: 40%; }
+.w50 { width: 50%; }
+.w60 { width: 60%; }
+.w66 { width: 66.66666666666%; }
+.w80 { width: 80%; }
+.w90 { width: 90%; }
+.w100 { width: 100%; }
+.w100px { width: 100px; }
+.w150px { width: 150px; }
+
+.h10 { height: 10%; }
+.h20 { height: 20%; }
+.h25 { height: 25%; }
+.h33 { height: 33.33333333333%; }
+.h40 { height: 40%; }
+.h50 { height: 50%; }
+.h60 { height: 60%; }
+.h66 { height: 66.66666666666%; }
+.h80 { height: 80%; }
+.h90 { height: 90%; }
+.h100 { height: 100%; }
+.h100px { height: 100px; }
+.h150px { height: 150px; }
+
+.flex1 { flex: 1; }
+.flex2 { flex: 2; }
+
+.dFlex { display: flex; }
+.flexColumn {
+    display: flex;
+    flex-direction: column;
+}
+.alignItemsCenter { align-items: center; }
+.alignItemsStart { align-items: flex-start; }
+.alignItemsEnd { align-items: flex-end; }
+.justifyContentCenter { justify-content: center; }
+.justifyContentStart { justify-content: flex-start; }
+.justifyContentBetween { justify-content: space-between; }
+.justifyContentEnd { justify-content: flex-end; }
+
+.container {
+    box-sizing: border-box;
+    padding: var(--container-padding);
+}
+.segment {
+    border-radius: 8px;
+    box-sizing: border-box;
+    width: 100%;
+    background: var(--segment-color);
+    padding: var(--segment-padding);
+    margin-top: var(--segment-margin);
+}
+.hr {
+    margin-left: calc(-1 * var(--segment-padding));
+    padding: var(--segment-padding) 0;
+}
+hr {
+    margin: 0;
+    border-color: var(--hr-color);
+}

@@ -1,0 +1,38 @@
+@import 'constants/styles/colors.scss';
+
+#app {
+    &.light-theme {
+        min-width: 100%;
+        min-height: 100vh;
+        --tint-color: #{$TINTCOLOR};
+        --red: #{$RED};
+        --orange: #{$ORANGE};
+        --bg-color: #{$BG_COLOR};
+        --border-color: #{$BORDER_COLOR};
+        --font-color: #{$FONT_COLOR};
+        --box-shadow-color: #{$BOX_SHADOW_COLOR};
+        --segment-color: #{$SEGMENT_COLOR};
+        --hr-color: #{$HR_COLOR};
+    
+        background: var(--bg-color);
+        color: var(--font-color);
+    }
+    &.dark-theme {
+        min-width: 100%;
+        min-height: 100vh;
+        --tint-color: #{$TINTCOLOR_DARK};
+        --red: #{$RED};
+        --bg-color: #{$BG_COLOR_DARK};
+        --border-color: #{$BORDER_COLOR_DARK};
+        --font-color: #{$FONT_COLOR_DARK};
+        --box-shadow-color: #{$BOX_SHADOW_COLOR_DARK};
+        --segment-color: #{$SEGMENT_COLOR_DARK};
+        --hr-color: #{$HR_COLOR_DARK};
+    
+        background: var(--bg-color);
+        color: var(--font-color);
+    }
+    .boxShadow {
+        box-shadow: 0 0 10px 2px var(--box-shadow-color);
+    }
+}

@@ -1,0 +1,135 @@
+$FONT_SIZE_LARGE: 2rem;
+$FONT_SIZE_BIG: 1.47rem;
+$FONT_SIZE_MEDIUM: 1rem;
+$FONT_SIZE_SMALL: 0.82rem;
+$FONT_SIZE_TINY: 0.5rem;
+
+$TITLE_FONT_SIZE_LARGE: 2.4rem;
+$TITLE_FONT_SIZE_BIG: 1.82rem;
+$TITLE_FONT_SIZE_MEDIUM: 1.47rem;
+$TITLE_FONT_SIZE_SMALL: 1rem;
+$TITLE_FONT_SIZE_TINY: 0.82rem;
+
+$CONTAINER_PADDING_LARGE: 24px;
+$CONTAINER_PADDING_BIG: 20px;
+$CONTAINER_PADDING_MEDIUM: 16px;
+$CONTAINER_PADDING_SMALL: 12px;
+$CONTAINER_PADDING_TINY: 10px;
+
+$SEGMENT_PADDING_LARGE: 24px;
+$SEGMENT_PADDING_BIG: 20px;
+$SEGMENT_PADDING_MEDIUM: 16px;
+$SEGMENT_PADDING_SMALL: 12px;
+$SEGMENT_PADDING_TINY: 10px;
+
+$SEGMENT_MARGIN_LARGE: 40px;
+$SEGMENT_MARGIN_BIG: 30px;
+$SEGMENT_MARGIN_MEDIUM: 25px;
+$SEGMENT_MARGIN_SMALL: 20px;
+$SEGMENT_MARGIN_TINY: 15px;
+
+$INPUT_PADDING_LARGE: 16px;
+$INPUT_PADDING_BIG: 12px;
+$INPUT_PADDING_MEDIUM: 10px;
+$INPUT_PADDING_SMALL: 8px;
+$INPUT_PADDING_TINY: 6px;
+
+$ICON_SIZE_LARGE: 1.82em;
+$ICON_SIZE_BIG: 1.82em;
+$ICON_SIZE_MEDIUM: 1.82em;
+$ICON_SIZE_SMALL: 1.82em;
+$ICON_SIZE_TINY: 2em;
+
+
+
+
+#app {
+    --font-size-large: #{$FONT_SIZE_LARGE};
+    --font-size-big: #{$FONT_SIZE_BIG};
+    --font-size-medium: #{$FONT_SIZE_MEDIUM};
+    --font-size-small: #{$FONT_SIZE_SMALL};
+    --font-size-tiny: #{$FONT_SIZE_TINY};
+
+    --title-font-size-large: #{$TITLE_FONT_SIZE_LARGE};
+    --title-font-size-big: #{$TITLE_FONT_SIZE_BIG};
+    --title-font-size-medium: #{$TITLE_FONT_SIZE_MEDIUM};
+    --title-font-size-small: #{$TITLE_FONT_SIZE_SMALL};
+    --title-font-size-tiny: #{$TITLE_FONT_SIZE_TINY};
+
+    --container-padding-large: #{$CONTAINER_PADDING_LARGE};
+    --container-padding-big: #{$CONTAINER_PADDING_BIG};
+    --container-padding-medium: #{$CONTAINER_PADDING_MEDIUM};
+    --container-padding-small: #{$CONTAINER_PADDING_SMALL};
+    --container-padding-tiny: #{$CONTAINER_PADDING_TINY};
+
+    --segment-padding-large: #{$SEGMENT_PADDING_LARGE};
+    --segment-padding-big: #{$SEGMENT_PADDING_BIG};
+    --segment-padding-medium: #{$SEGMENT_PADDING_MEDIUM};
+    --segment-padding-small: #{$SEGMENT_PADDING_SMALL};
+    --segment-padding-tiny: #{$SEGMENT_PADDING_TINY};
+
+    --segment-margin-large: #{$SEGMENT_MARGIN_LARGE};
+    --segment-margin-big: #{$SEGMENT_MARGIN_BIG};
+    --segment-margin-medium: #{$SEGMENT_MARGIN_MEDIUM};
+    --segment-margin-small: #{$SEGMENT_MARGIN_SMALL};
+    --segment-margin-tiny: #{$SEGMENT_MARGIN_TINY};
+
+    --input-padding-large: #{$INPUT_PADDING_LARGE};
+    --input-padding-big: #{$INPUT_PADDING_BIG};
+    --input-padding-medium: #{$INPUT_PADDING_MEDIUM};
+    --input-padding-small: #{$INPUT_PADDING_SMALL};
+    --input-padding-tiny: #{$INPUT_PADDING_TINY};
+
+    --icon-size-large: #{$ICON_SIZE_LARGE};
+    --icon-size-big: #{$ICON_SIZE_BIG};
+    --icon-size-medium: #{$ICON_SIZE_MEDIUM};
+    --icon-size-small: #{$ICON_SIZE_SMALL};
+    --icon-size-tiny: #{$ICON_SIZE_TINY};
+
+    &.large {
+        --font-size: var(--font-size-large);
+        --title-font-size: var(--title-font-size-large);
+        --container-padding: var(--container-padding-large);
+        --segment-padding: var(--segment-padding-large);
+        --segment-margin: var(--segment-margin-large);
+        --input-padding: var(--input-padding-large);
+        --icon-size: var(--icon-size-large);
+    }
+    &.big {
+        --font-size: var(--font-size-big);
+        --title-font-size: var(--title-font-size-big);
+        --container-padding: var(--container-padding-big);
+        --segment-padding: var(--segment-padding-big);
+        --segment-margin: var(--segment-margin-big);
+        --input-padding: var(--input-padding-big);
+        --icon-size: var(--icon-size-big);
+    }
+    &.medium {
+        --font-size: var(--font-size-medium);
+        --title-font-size: var(--title-font-size-medium);
+        --container-padding: var(--container-padding-medium);
+        --segment-padding: var(--segment-padding-medium);
+        --segment-margin: var(--segment-margin-medium);
+        --input-padding: var(--input-padding-medium);
+        --icon-size: var(--icon-size-medium);
+    }
+    &.small {
+        --font-size: var(--font-size-small);
+        --title-font-size: var(--title-font-size-small);
+        --container-padding: var(--container-padding-small);
+        --segment-padding: var(--segment-padding-small);
+        --segment-margin: var(--segment-margin-small);
+        --input-padding: var(--input-padding-small);
+        --icon-size: var(--icon-size-small);
+    }
+    &.tiny {
+        --font-size: var(--font-size-tiny);
+        --title-font-size: var(--title-font-size-tiny);
+        --container-padding: var(--container-padding-tiny);
+        --segment-padding: var(--segment-padding-tiny);
+        --segment-margin: var(--segment-margin-tiny);
+        --input-padding: var(--input-padding-tiny);
+        --icon-size: var(--icon-size-tiny);
+    }
+    font-size: var(--font-size);
+}

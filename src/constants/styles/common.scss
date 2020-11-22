@@ -1,0 +1,106 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    * {
+        font-family: "Microsoft JhengHei";
+    }
+}
+
+.relative { position: relative; }
+.absolute { position: absolute; }
+.static { position: static; }
+
+.top0 { top: 0% }
+.bottom0 { bottom: 0% }
+.left0 { left: 0% }
+.right0 { right: 0% }
+
+.top100 { top: 100% }
+.bottom100 { bottom: 100% }
+.left100 { left: 100% }
+.right100 { right: 100% }
+
+
+.pl0 { padding-left: 0px !important; }
+.pr0 { padding-right: 0px !important; }
+.pt0 { padding-top: 0px !important; }
+.pb0 { padding-bottom: 0px !important; }
+.px0 { padding-left: 0px !important; padding-right: 0px !important; }
+.py0 { padding-top: 0px !important; padding-bottom: 0px !important; }
+.p0 { padding: 0px !important; }
+
+.pl10 { padding-left: 10px; }
+.pr10 { padding-right: 10px; }
+.pt10 { padding-top: 10px; }
+.pb10 { padding-bottom: 10px; }
+.px10 { padding-left: 10px; padding-right: 10px; }
+.py10 { padding-top: 10px; padding-bottom: 10px; }
+.p10 { padding: 10px; }
+
+.pl15 { padding-left: 15px; }
+.pr15 { padding-right: 15px; }
+.pt15 { padding-top: 15px; }
+.pb15 { padding-bottom: 15px; }
+.px15 { padding-left: 15px; padding-right: 15px; }
+.py15 { padding-top: 15px; padding-bottom: 15px; }
+.p15 { padding: 15px; }
+
+.pl20 { padding-left: 20px; }
+.pr20 { padding-right: 20px; }
+.pt20 { padding-top: 20px; }
+.pb20 { padding-bottom: 20px; }
+.px20 { padding-left: 20px; padding-right: 20px; }
+.py20 { padding-top: 20px; padding-bottom: 20px; }
+.p20 { padding: 20px; }
+
+.pl25 { padding-left: 25px; }
+.pr25 { padding-right: 25px; }
+.pt25 { padding-top: 25px; }
+.pb25 { padding-bottom: 25px; }
+.px25 { padding-left: 25px; padding-right: 25px; }
+.py25 { padding-top: 25px; padding-bottom: 25px; }
+.p25 { padding: 25px; }
+
+.ml0 { margin-left: 0px !important; }
+.mr0 { margin-right: 0px !important; }
+.mt0 { margin-top: 0px !important; }
+.mb0 { margin-bottom: 0px !important; }
+.mx0 { margin-left: 0px !important; margin-right: 0px !important; }
+.my0 { margin-top: 0px !important; margin-bottom: 0px !important; }
+.m0 { margin: 0px !important; }
+
+.ml10 { margin-left: 10px; }
+.mr10 { margin-right: 10px; }
+.mt10 { margin-top: 10px; }
+.mb10 { margin-bottom: 10px; }
+.mx10 { margin-left: 10px; margin-right: 10px; }
+.my10 { margin-top: 10px; margin-bottom: 10px; }
+.m10 { margin: 10px; }
+
+.ml15 { margin-left: 15px; }
+.mr15 { margin-right: 15px; }
+.mt15 { margin-top: 15px; }
+.mb15 { margin-bottom: 15px; }
+.mx15 { margin-left: 15px; margin-right: 15px; }
+.my15 { margin-top: 15px; margin-bottom: 15px; }
+.m15 { margin: 15px; }
+
+.ml20 { margin-left: 20px; }
+.mr20 { margin-right: 20px; }
+.mt20 { margin-top: 20px; }
+.mb20 { margin-bottom: 20px; }
+.mx20 { margin-left: 20px; margin-right: 20px; }
+.my20 { margin-top: 20px; margin-bottom: 20px; }
+.m20 { margin: 20px; }
+
+.ml25 { margin-left: 25px; }
+.mr25 { margin-right: 25px; }
+.mt25 { margin-top: 25px; }
+.mb25 { margin-bottom: 25px; }
+.mx25 { margin-left: 25px; margin-right: 25px; }
+.my25 { margin-top: 25px; margin-bottom: 25px; }
+.m25 { margin: 25px; }
+
+
+.fontWeightBold { font-weight: bold; }
+.borderBox { box-sizing: border-box; }
