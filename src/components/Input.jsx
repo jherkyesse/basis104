@@ -2,6 +2,21 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { IoIosCloseCircleOutline } from 'react-icons/io';
 import RenderRequired from './RenderRequired';
+import { validate } from '../utils/validator';
+
+function InputErrorMessage({ errorMessage }) {
+  return (
+    <div className="inputErrorMessage" hidden={!errorMessage} data-label={errorMessage} />
+  );
+}
+
+InputErrorMessage.propTypes = {
+  errorMessage: PropTypes.string,
+};
+
+InputErrorMessage.defaultProps = {
+  errorMessage: '',
+};
 
 function ControlledInput({
   value,
@@ -10,12 +25,17 @@ function ControlledInput({
   onChange,
   type,
   keyboardType, // default, numeric, number, alphabet, uppercase, lowercase, custom
+  regular,
 }) {
   const [focus, setFocus] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const getFocus = () => setFocus(true);
   const getBlur = () => setFocus(false);
   const onChangeValue = (event) => {
     const { target: { value } } = event;
+    const errorMessage = validate({ type: keyboardType, value });
+    setErrorMessage(errorMessage);
+    if (errorMessage) return;
     if (onChange) onChange(value);
   };
   const clearValue = () => onChange && onChange('');
@@ -31,6 +51,7 @@ function ControlledInput({
         onBlur={getBlur}
       />
       <IoIosCloseCircleOutline onClick={clearValue} />
+      <InputErrorMessage errorMessage={errorMessage} />
     </div>
   );
 }
@@ -83,6 +104,7 @@ export default function Input({
   onChange,
   type,
   keyboardType,
+  regular,
 }) {
   return (
     <div
@@ -112,6 +134,7 @@ export default function Input({
             onChange={onChange}
             type={type}
             keyboardType={keyboardType}
+            regular={regular}
           />,
         ][+controlled]
       }
@@ -133,6 +156,7 @@ Input.propTypes = {
   autoFocus: PropTypes.bool,
   onChange: PropTypes.func,
   keyboardType: PropTypes.string,
+  regular: PropTypes.string,
 };
 
 Input.defaultProps = {
@@ -149,4 +173,5 @@ Input.defaultProps = {
   autoFocus: false,
   onChange: null,
   keyboardType: 'default',
+  regular: null,
 };

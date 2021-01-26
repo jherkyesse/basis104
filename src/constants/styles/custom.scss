@@ -15,6 +15,38 @@
     span.required {
         color: var(--red);
     }
+    .inputErrorMessage {
+        position: absolute;
+        top: 100%;
+        margin: var(--input-padding) 0 0;
+        z-index: 3;
+        &::before {
+            content: '';
+            position: absolute;
+            border-width: 1px 0 0 1px;
+            border-style: solid;
+            border-color: var(--tint-color);
+            transform: translateX(-50%) translateY(-50%) rotate(45deg);
+            top: 0;
+            left: 10%;
+            width: .6666em;
+            height: .6666em;
+            background: var(--white);
+            margin: var(--input-padding) 0 0 0;
+        }
+        &::after {
+            content: attr(data-label);
+            padding: var(--input-padding);
+            border: 1px solid var(--tint-color);
+            box-shadow: 0 1px 3px 2px rgba(255, 56, 67, 0.17);
+            border-radius: 4px;
+            color: var(--tint-color);
+            background: var(--white);
+            display: inline-block;
+            white-space: pre-wrap;
+            margin: var(--input-padding) 0 0;
+        }
+    }
     .input {
         position: relative;
         display: flex;

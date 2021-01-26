@@ -13,6 +13,7 @@
         --box-shadow-color: #{$BOX_SHADOW_COLOR};
         --segment-color: #{$SEGMENT_COLOR};
         --hr-color: #{$HR_COLOR};
+        --white: #{$WHITE};
     
         background: var(--bg-color);
         color: var(--font-color);
@@ -28,6 +29,7 @@
         --box-shadow-color: #{$BOX_SHADOW_COLOR_DARK};
         --segment-color: #{$SEGMENT_COLOR_DARK};
         --hr-color: #{$HR_COLOR_DARK};
+        --white: #{$WHITE};
     
         background: var(--bg-color);
         color: var(--font-color);
