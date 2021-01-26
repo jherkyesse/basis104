@@ -1,19 +1,36 @@
 // LIGHT THEME
 
 $TINTCOLOR: #c66161;
-$RED: red;
-$ORANGE: orange;
-$YELLOW: yellow;
-$GREEN: green;
-$BLUE: blue;
-$PURPLE: purple;
-$BROWN: brown;
+$RED_LIGHT: rgb(248, 190, 190);
+$RED: rgb(220, 52, 52);
+$RED_DARK: rgb(173, 36, 36);
+$ORANGE_LIGHT: rgb(248, 212, 192);
+$ORANGE: rgb(237, 112, 44);
+$ORANGE_DARK: rgb(191, 85, 29);
+$YELLOW_LIGHT: rgb(248, 248, 191);
+$YELLOW: rgb(241, 241, 31);
+$YELLOW_DARK: rgb(202, 202, 19);
+$GREEN_LIGHT: rgb(187, 247, 187);
+$GREEN: rgb(55, 230, 55);
+$GREEN_DARK: rgb(38, 186, 38);
+$BLUE_LIGHT: rgb(201, 210, 247);
+$BLUE: rgb(116, 140, 245);
+$BLUE_DARK: rgb(81, 102, 196);
+$TINT_LIGHT: rgb(187, 247, 247);
+$TINT: rgb(60, 230, 230);
+$TINT_DARK: rgb(39, 185, 185);
+$PURPLE_LIGHT: rgb(247, 187, 247);
+$PURPLE: rgb(214, 68, 214);
+$PURPLE_DARK: rgb(169, 45, 169);
+$BROWN_LIGHT: rgb(249, 231, 187);
+$BROWN: rgb(172, 140, 60);
+$BROWN_DARK: rgb(120, 96, 37);
 $GRAY: gray;
 $BLACK: black;
 $WHITE: white;
 
 $BG_COLOR: #ececec;
-$BORDER_COLOR: #999999;
+$BORDER_COLOR: #e8e8e8;
 
 $FONT_COLOR: #3a3a3a;
 $BOX_SHADOW_COLOR: #00000029;

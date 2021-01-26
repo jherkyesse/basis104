@@ -1,9 +1,9 @@
-const webpack = require('webpack')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const path = require('path')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const InlineChunkHtmlPlugin = require('react-dev-utils/InlineChunkHtmlPlugin')
-const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin')
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const InlineChunkHtmlPlugin = require('react-dev-utils/InlineChunkHtmlPlugin');
+const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
 
 module.exports = {
   mode: 'development',
@@ -16,44 +16,44 @@ module.exports = {
     chunkFilename: '[name]-[chunkhash].chunk.js',
     publicPath: '/',
     pathinfo: false,
-    hashDigestLength: 8
+    hashDigestLength: 8,
   },
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: 'babel-loader'
+        use: 'babel-loader',
       },
       {
         test: /\.css$/,
         use: [
           MiniCssExtractPlugin.loader,
           {
-            loader: 'css-loader'
-          }
-        ]
+            loader: 'css-loader',
+          },
+        ],
       },
       {
         test: /\.(scss|sass)$/,
         use: [
           MiniCssExtractPlugin.loader,
           {
-            loader: 'css-loader'
+            loader: 'css-loader',
           },
           {
-            loader: 'sass-loader'
-          }
-        ]
-      }
-    ]
+            loader: 'sass-loader',
+          },
+        ],
+      },
+    ],
   },
   resolve: {
     extensions: ['.js', '.jsx'],
     modules: [
       path.resolve('src'),
-      'node_modules'
-    ]
+      'node_modules',
+    ],
   },
   plugins: [
     new MiniCssExtractPlugin({ filename: 'style/[contenthash].css' }),
@@ -62,7 +62,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       inject: true,
       filename: './index.html',
-      template: './index.html'
+      template: './index.html',
     }),
     new InlineChunkHtmlPlugin(HtmlWebpackPlugin, [/runtime/]),
     new WatchMissingNodeModulesPlugin(path.resolve('node_modules')),
@@ -73,6 +73,6 @@ module.exports = {
     clientLogLevel: 'error',
     // noInfo: false,
     historyApiFallback: true,
-    port: 3000
-  }
-}
+    port: 3000,
+  },
+};

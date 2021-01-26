@@ -1,5 +1,5 @@
-import React from 'react'
+import React from 'react';
 
 export default function RenderRequired({ required }) {
-	return required ? (<span className="required">*</span>) : null
+  return required ? (<span className="required">*</span>) : null;
 }

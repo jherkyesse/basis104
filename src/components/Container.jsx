@@ -1,9 +1,22 @@
-import React from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
 
-export default function Container({ className = '', children }) {
+function Container({ className = '', children }) {
   return (
-		<div className={`relative flexColumn w100 container ${className}`}>
-			{children}
-		</div>
+    <div className={`relative flexColumn w100 container ${className}`}>
+      {children}
+    </div>
   );
 }
+
+Container.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.node,
+};
+
+Container.defaultProps = {
+  className: '',
+  children: null,
+};
+
+export default Container;

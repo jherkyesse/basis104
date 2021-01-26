@@ -40,7 +40,17 @@ $ICON_SIZE_MEDIUM: 1.82em;
 $ICON_SIZE_SMALL: 1.82em;
 $ICON_SIZE_TINY: 2em;
 
+$BUTTON_PADDING_LARGE: 16px 22px;
+$BUTTON_PADDING_BIG: 12px 18px;
+$BUTTON_PADDING_MEDIUM: 10px 16px;
+$BUTTON_PADDING_SMALL: 8px 14px;
+$BUTTON_PADDING_TINY: 6px 12px;
 
+$BUTTON_MARGIN_LARGE: 16px;
+$BUTTON_MARGIN_BIG: 14px;
+$BUTTON_MARGIN_MEDIUM: 12px;
+$BUTTON_MARGIN_SMALL: 10px;
+$BUTTON_MARGIN_TINY: 8px;
 
 
 #app {
@@ -86,6 +96,18 @@ $ICON_SIZE_TINY: 2em;
     --icon-size-small: #{$ICON_SIZE_SMALL};
     --icon-size-tiny: #{$ICON_SIZE_TINY};
 
+    --button-padding-large: #{$BUTTON_PADDING_LARGE};
+    --button-padding-big: #{$BUTTON_PADDING_BIG};
+    --button-padding-medium: #{$BUTTON_PADDING_MEDIUM};
+    --button-padding-small: #{$BUTTON_PADDING_SMALL};
+    --button-padding-tiny: #{$BUTTON_PADDING_TINY};
+
+    --button-margin-large: #{$BUTTON_MARGIN_LARGE};
+    --button-margin-big: #{$BUTTON_MARGIN_BIG};
+    --button-margin-medium: #{$BUTTON_MARGIN_MEDIUM};
+    --button-margin-small: #{$BUTTON_MARGIN_SMALL};
+    --button-margin-tiny: #{$BUTTON_MARGIN_TINY};
+
     &.large {
         --font-size: var(--font-size-large);
         --title-font-size: var(--title-font-size-large);
@@ -94,6 +116,8 @@ $ICON_SIZE_TINY: 2em;
         --segment-margin: var(--segment-margin-large);
         --input-padding: var(--input-padding-large);
         --icon-size: var(--icon-size-large);
+        --button-padding: var(--button-padding-large);
+        --button-margin: var(--button-margin-large);
     }
     &.big {
         --font-size: var(--font-size-big);
@@ -103,6 +127,8 @@ $ICON_SIZE_TINY: 2em;
         --segment-margin: var(--segment-margin-big);
         --input-padding: var(--input-padding-big);
         --icon-size: var(--icon-size-big);
+        --button-padding: var(--button-padding-big);
+        --button-margin: var(--button-margin-big);
     }
     &.medium {
         --font-size: var(--font-size-medium);
@@ -112,6 +138,8 @@ $ICON_SIZE_TINY: 2em;
         --segment-margin: var(--segment-margin-medium);
         --input-padding: var(--input-padding-medium);
         --icon-size: var(--icon-size-medium);
+        --button-padding: var(--button-padding-medium);
+        --button-margin: var(--button-margin-medium);
     }
     &.small {
         --font-size: var(--font-size-small);
@@ -121,6 +149,8 @@ $ICON_SIZE_TINY: 2em;
         --segment-margin: var(--segment-margin-small);
         --input-padding: var(--input-padding-small);
         --icon-size: var(--icon-size-small);
+        --button-padding: var(--button-padding-small);
+        --button-margin: var(--button-margin-small);
     }
     &.tiny {
         --font-size: var(--font-size-tiny);
@@ -130,6 +160,8 @@ $ICON_SIZE_TINY: 2em;
         --segment-margin: var(--segment-margin-tiny);
         --input-padding: var(--input-padding-tiny);
         --icon-size: var(--icon-size-tiny);
+        --button-padding: var(--button-padding-tiny);
+        --button-margin: var(--button-margin-tiny);
     }
     font-size: var(--font-size);
 }

@@ -62,3 +62,57 @@ hr {
     margin: 0;
     border-color: var(--hr-color);
 }
+.row {
+    flex-wrap: nowrap;
+    flex: 1;
+    display: flex;
+    & button {
+        margin-bottom: var(--segment-padding);
+    }
+}
+
+.inputContainer {
+    display: inline-flex;
+    flex-direction: column;
+    flex: 1;
+    margin-right: var(--button-margin);
+    &[sm="12"] {
+        width: 100%;
+    }
+    &[sm="11"] {
+        flex: 11;
+    }
+    &[sm="10"] {
+        flex: 10;
+    }
+    &[sm="9"] {
+        flex: 9;
+    }
+    &[sm="8"] {
+        flex: 8;
+    }
+    &[sm="7"] {
+        flex: 7;
+    }
+    &[sm="6"] {
+        flex: 0.5;
+    }
+    &[sm="5"] {
+        flex: 5;
+    }
+    &[sm="4"] {
+        flex: 4;
+    }
+    &[sm="3"] {
+        flex: 3;
+    }
+    &[sm="2"] {
+        flex: 2;
+    }
+    &[sm="1"] {
+        flex: 1;
+    }
+    &:not(:nth-child-last(1)) {
+        margin-right: 0;
+    }
+}
