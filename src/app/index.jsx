@@ -2,24 +2,375 @@ import React, { useState } from 'react';
 import { useLocalStorage } from 'react-use';
 import {
   Button,
+  Checkbox,
   Container,
   Dropdown,
-  Segment,
-  Input,
+  Grid,
   Hr,
+  Input,
   Row,
-  Title,
+  Segment,
+  TabBar,
   Textarea,
+  Title,
 } from 'components';
+
+const preSimulationRequestList = [
+  {
+    select: false,
+    createUser: 'WCFANGC',
+    submitDt: '2020/01/03 09:28:34',
+    tech: 'N05',
+    fromOpeNo: '0000.000',
+    toOpeNo: '9000.000',
+    remark: '',
+    requestId: 'NTO_20202',
+    option1: 'op1',
+    option2: 'op2',
+    option3: 'op3',
+    option4: 'op4',
+    option5: 'op5',
+    option6: 'op6',
+    option7: 'op7',
+    option8: 'op8',
+    option9: 'op9',
+  },
+  {
+    select: false,
+    createUser: 'WCFANGC',
+    submitDt: '2020/01/03 09:28:34',
+    tech: 'N05',
+    fromOpeNo: '0000.000',
+    toOpeNo: '9000.000',
+    remark: '',
+    option1: 'op1',
+    option2: 'op2',
+    option3: 'op3',
+    option4: 'op4',
+    option5: 'op5',
+    option6: 'op6',
+    option7: 'op7',
+    option8: 'op8',
+    option9: 'op9',
+    requestId: 'NTO_20202',
+  },
+  {
+    select: false,
+    createUser: 'WCFANGC',
+    submitDt: '2020/01/03 09:28:34',
+    tech: 'N05',
+    fromOpeNo: '0000.000',
+    toOpeNo: '9000.000',
+    remark: '',
+    option1: 'op1',
+    option2: 'op2',
+    option3: 'op3',
+    option4: 'op4',
+    option5: 'op5',
+    option6: 'op6',
+    option7: 'op7',
+    option8: 'op8',
+    option9: 'op9',
+    requestId: 'NTO_20202',
+  },
+  {
+    select: false,
+    createUser: 'WCFANGC',
+    submitDt: '2020/01/03 09:28:34',
+    tech: 'N05',
+    fromOpeNo: '0000.000',
+    toOpeNo: '9000.000',
+    remark: '',
+    option1: 'op1',
+    option2: 'op2',
+    option3: 'op3',
+    option4: 'op4',
+    option5: 'op5',
+    option6: 'op6',
+    option7: 'op7',
+    option8: 'op8',
+    option9: 'op9',
+    requestId: 'NTO_20202',
+  },
+  {
+    select: false,
+    createUser: 'WCFANGC',
+    submitDt: '2020/01/03 09:28:34',
+    tech: 'N05',
+    fromOpeNo: '0000.000',
+    toOpeNo: '9000.000',
+    remark: '',
+    option1: 'op1',
+    option2: 'op2',
+    option3: 'op3',
+    option4: 'op4',
+    option5: 'op5',
+    option6: 'op6',
+    option7: 'op7',
+    option8: 'op8',
+    option9: 'op9',
+    requestId: 'NTO_20202',
+  },
+  {
+    select: false,
+    createUser: 'WCFANGC',
+    submitDt: '2020/01/03 09:28:34',
+    tech: 'N05',
+    fromOpeNo: '0000.000',
+    toOpeNo: '9000.000',
+    remark: '',
+    option1: 'op1',
+    option2: 'op2',
+    option3: 'op3',
+    option4: 'op4',
+    option5: 'op5',
+    option6: 'op6',
+    option7: 'op7',
+    option8: 'op8',
+    option9: 'op9',
+    requestId: 'NTO_20202',
+  },
+  {
+    select: false,
+    createUser: 'WCFANGC',
+    submitDt: '2020/01/03 09:28:34',
+    tech: 'N05',
+    fromOpeNo: '0000.000',
+    toOpeNo: '9000.000',
+    remark: '',
+    option1: 'op1',
+    option2: 'op2',
+    option3: 'op3',
+    option4: 'op4',
+    option5: 'op5',
+    option6: 'op6',
+    option7: 'op7',
+    option8: 'op8',
+    option9: 'op9',
+    requestId: 'NTO_20202',
+  },
+  {
+    select: false,
+    createUser: 'WCFANGC',
+    submitDt: '2020/01/03 09:28:34',
+    tech: 'N05',
+    fromOpeNo: '0000.000',
+    toOpeNo: '9000.000',
+    remark: '',
+    option1: 'op1',
+    option2: 'op2',
+    option3: 'op3',
+    option4: 'op4',
+    option5: 'op5',
+    option6: 'op6',
+    option7: 'op7',
+    option8: 'op8',
+    option9: 'op9',
+    requestId: 'NTO_20202',
+  },
+  {
+    select: false,
+    createUser: 'WCFANGC',
+    submitDt: '2020/01/03 09:28:34',
+    tech: 'N05',
+    fromOpeNo: '0000.000',
+    toOpeNo: '9000.000',
+    remark: '',
+    option1: 'op1',
+    option2: 'op2',
+    option3: 'op3',
+    option4: 'op4',
+    option5: 'op5',
+    option6: 'op6',
+    option7: 'op7',
+    option8: 'op8',
+    option9: 'op9',
+    requestId: 'NTO_20202',
+  },
+  {
+    select: false,
+    createUser: 'WCFANGC',
+    submitDt: '2020/01/03 09:28:34',
+    tech: 'N05',
+    fromOpeNo: '0000.000',
+    toOpeNo: '9000.000',
+    remark: '',
+    option1: 'op1',
+    option2: 'op2',
+    option3: 'op3',
+    option4: 'op4',
+    option5: 'op5',
+    option6: 'op6',
+    option7: 'op7',
+    option8: 'op8',
+    option9: 'op9',
+    requestId: 'NTO_20202',
+  },
+  {
+    select: false,
+    createUser: 'WCFANGC',
+    submitDt: '2020/01/03 09:28:34',
+    tech: 'N05',
+    fromOpeNo: '0000.000',
+    toOpeNo: '9000.000',
+    remark: '',
+    option1: 'op1',
+    option2: 'op2',
+    option3: 'op3',
+    option4: 'op4',
+    option5: 'op5',
+    option6: 'op6',
+    option7: 'op7',
+    option8: 'op8',
+    option9: 'op9',
+    requestId: 'NTO_20202',
+  },
+  {
+    select: false,
+    createUser: 'WCFANGC',
+    submitDt: '2020/01/03 09:28:34',
+    tech: 'N05',
+    fromOpeNo: '0000.000',
+    toOpeNo: '9000.000',
+    remark: '',
+    option1: 'op1',
+    option2: 'op2',
+    option3: 'op3',
+    option4: 'op4',
+    option5: 'op5',
+    option6: 'op6',
+    option7: 'op7',
+    option8: 'op8',
+    option9: 'op9',
+    requestId: 'NTO_20202',
+  },
+  {
+    select: false,
+    createUser: 'WCFANGC',
+    submitDt: '2020/01/03 09:28:34',
+    tech: 'N05',
+    fromOpeNo: '0000.000',
+    toOpeNo: '9000.000',
+    remark: '',
+    option1: 'op1',
+    option2: 'op2',
+    option3: 'op3',
+    option4: 'op4',
+    option5: 'op5',
+    option6: 'op6',
+    option7: 'op7',
+    option8: 'op8',
+    option9: 'op9',
+    requestId: 'NTO_20202',
+  },
+  {
+    select: false,
+    createUser: 'WCFANGC',
+    submitDt: '2020/01/03 09:28:34',
+    tech: 'N05',
+    fromOpeNo: '0000.000',
+    toOpeNo: '9000.000',
+    remark: '',
+    option1: 'op1',
+    option2: 'op2',
+    option3: 'op3',
+    option4: 'op4',
+    option5: 'op5',
+    option6: 'op6',
+    option7: 'op7',
+    option8: 'op8',
+    option9: 'op9',
+    requestId: 'NTO_20202',
+  },
+  {
+    select: false,
+    createUser: 'WCFANGC',
+    submitDt: '2020/01/03 09:28:34',
+    tech: 'N05',
+    fromOpeNo: '0000.000',
+    toOpeNo: '9000.000',
+    remark: '',
+    option1: 'op1',
+    option2: 'op2',
+    option3: 'op3',
+    option4: 'op4',
+    option5: 'op5',
+    option6: 'op6',
+    option7: 'op7',
+    option8: 'op8',
+    option9: 'op9',
+    requestId: 'NTO_20202',
+  },
+  {
+    select: false,
+    createUser: 'WCFANGC',
+    submitDt: '2020/01/03 09:28:34',
+    tech: 'N05',
+    fromOpeNo: '0000.000',
+    toOpeNo: '9000.000',
+    remark: '',
+    option1: 'op1',
+    option2: 'op2',
+    option3: 'op3',
+    option4: 'op4',
+    option5: 'op5',
+    option6: 'op6',
+    option7: 'op7',
+    option8: 'op8',
+    option9: 'op9',
+    requestId: 'NTO_20202',
+  },
+];
+
+const simulationRequestHeaderList = [
+  'createUser',
+  'submitDt',
+  'tech',
+  'fromOpeNo',
+  'toOpeNo',
+  'remark',
+  'requestId',
+  'option2',
+  'option3',
+  'option4',
+  'option5',
+  'option6',
+  'option7',
+  'option8',
+  'option9',
+];
 
 export default function App() {
   const [username, setUsername] = useState('Jherk');
+  const [checked, setChecked] = useState(false);
+  const [simulationRequestList, setSimulationRequestList] = useState(preSimulationRequestList);
   const [theme, setTheme] = useLocalStorage('theme', 'light');
+  const [activeTab, setActiveTab] = useLocalStorage('tab', 'BookingSimulation');
   const [fontSize, setFontSize] = useLocalStorage('fontSize', 'medium');
   const toggleTheme = () => setTheme(theme === 'light' ? 'dark' : 'light');
   const toggleFontSize = (fontSize) => setFontSize(fontSize);
+  const onSelect = (data) => setSimulationRequestList(data);
   return (
     <div id="app" className={`${theme}-theme ${fontSize}`}>
+      <TabBar
+        activeTab={activeTab}
+        onTabClick={setActiveTab}
+        data={[
+          {
+            label: 'Booking Simulation',
+            key: 'BookingSimulation',
+          },
+          {
+            label: 'Apply MPCS',
+            key: 'ApplyMPCS',
+          },
+          {
+            label: 'History',
+            key: 'History',
+            disabled: true,
+          },
+        ]}
+      />
       <Container>
         <Button onClick={toggleTheme} label="theme" />
         <Segment>
@@ -30,6 +381,22 @@ export default function App() {
           <Button onClick={() => toggleFontSize('medium')} label="medium" />
           <Button onClick={() => toggleFontSize('small')} label="small" />
           <Button onClick={() => toggleFontSize('tiny')} label="tiny" />
+        </Segment>
+        <Segment>
+          <Checkbox
+            checked={checked}
+            onChange={setChecked}
+            label="Check this."
+          />
+        </Segment>
+        <Segment>
+          <Grid
+            selectable
+            filterable
+            data={simulationRequestList}
+            headerList={simulationRequestHeaderList}
+            onSelect={onSelect}
+          />
         </Segment>
         <Segment>
           <Title label="Input" />
@@ -88,10 +455,7 @@ export default function App() {
               value=""
               placeholder="Please enter placeholder..."
             />
-            <Button
-              color="tint"
-              label="Query"
-            />
+            <Button color="tint" label="Query" />
           </Row>
           <Input
             label="Password"

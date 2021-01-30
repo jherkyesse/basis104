@@ -105,6 +105,7 @@ body {
 .my25 { margin-top: 25px; margin-bottom: 25px; }
 .m25 { margin: 25px; }
 
+.textAlignCenter { text-align: center; }
 
 .fontWeightBold { font-weight: bold; }
 .borderBox { box-sizing: border-box; }
@@ -118,9 +119,9 @@ button {
     color: transparent;
     margin-right: var(--button-margin);
     border-radius: 0.2rem;
-    &:focus {
-        box-shadow: 0 0 3pt 2pt #ececec;
-    }
+    // &:focus {
+    //     box-shadow: 0 0 3pt 2pt #ececec;
+    // }
     &[disabled] {
         cursor: default;
         opacity: 0.47;
@@ -131,7 +132,14 @@ button {
     &::after {
         content: attr(data-label);
         position: absolute;
-        color: var(--font-color);
+        // color: var(--font-color);
+        color: var(--white);
+    }
+    &[data-outline="true"] {
+        border-color: var(--tint-color);
+        &::after {
+            color: var(--tint-color);
+        }
     }
     &:active {
         &::after {

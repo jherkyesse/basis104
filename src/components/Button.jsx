@@ -1,13 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const outlineMap = ['', 'outline'];
-
 function Button({
-  className, outline = false, color, disabled, label, icon, onClick,
+  className, outline, color, disabled, label, icon, onClick,
 }) {
   return (
-    <button type="button" disabled={disabled} className={`${color} ${outlineMap[+outline]} ${className}`} onClick={onClick} data-label={label}>
+    <button type="button" data-outline={outline} disabled={disabled} className={`${color} ${className}`} onClick={onClick} data-label={label}>
       {icon}
       {label}
     </button>

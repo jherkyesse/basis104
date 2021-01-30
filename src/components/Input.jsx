@@ -6,7 +6,11 @@ import { validate } from '../utils/validator';
 
 function InputErrorMessage({ errorMessage }) {
   return (
-    <div className="inputErrorMessage" hidden={!errorMessage} data-label={errorMessage} />
+    <div
+      className="inputErrorMessage"
+      hidden={!errorMessage}
+      data-label={errorMessage}
+    />
   );
 }
 
@@ -20,29 +24,31 @@ InputErrorMessage.defaultProps = {
 
 function ControlledInput({
   value,
-  autoFocus,
   placeholder = '',
   onChange,
   type,
   keyboardType, // default, numeric, number, alphabet, uppercase, lowercase, custom
   regular,
+  ...props
 }) {
   const [focus, setFocus] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const getFocus = () => setFocus(true);
   const getBlur = () => setFocus(false);
   const onChangeValue = (event) => {
-    const { target: { value } } = event;
-    const errorMessage = validate({ type: keyboardType, value });
+    const {
+      target: { value },
+    } = event;
+    const errorMessage = validate({ type: keyboardType, value, regular });
     setErrorMessage(errorMessage);
-    if (errorMessage) return;
+    // if (errorMessage) return;
     if (onChange) onChange(value);
   };
   const clearValue = () => onChange && onChange('');
   return (
     <div className={`input ${focus ? 'focus' : ''}`}>
       <input
-        autoFocus={autoFocus}
+        {...props}
         type={type}
         value={value || ''}
         onChange={onChangeValue}
@@ -63,6 +69,7 @@ ControlledInput.propTypes = {
   onChange: PropTypes.func,
   type: PropTypes.string,
   keyboardType: PropTypes.string,
+  regular: PropTypes.string,
 };
 
 ControlledInput.defaultProps = {
@@ -72,10 +79,11 @@ ControlledInput.defaultProps = {
   onChange: null,
   type: '',
   keyboardType: '',
+  regular: null,
 };
 
-function UncontrolledInput({ value = '', autoFocus, type }) {
-  return <input autoFocus={autoFocus} type={type} defaultValue={value} />;
+function UncontrolledInput({ value = '', autoFocus, type, ...props }) {
+  return <input {...props} type={type} defaultValue={value} />;
 }
 
 UncontrolledInput.propTypes = {

@@ -1,6 +1,9 @@
 @import 'constants/styles/colors.scss';
 
+$OPACITY: 0.47;
+
 #app {
+    --opacity: #{$OPACITY};
     &.light-theme {
         min-width: 100%;
         min-height: 100vh;
@@ -14,6 +17,7 @@
         --segment-color: #{$SEGMENT_COLOR};
         --hr-color: #{$HR_COLOR};
         --white: #{$WHITE};
+        --red-light: #{$RED_LIGHT};
     
         background: var(--bg-color);
         color: var(--font-color);
@@ -30,6 +34,7 @@
         --segment-color: #{$SEGMENT_COLOR_DARK};
         --hr-color: #{$HR_COLOR_DARK};
         --white: #{$WHITE};
+        --red-light: #{$RED_LIGHT};
     
         background: var(--bg-color);
         color: var(--font-color);
@@ -40,109 +45,107 @@
 }
 
 button {
-    border: 1px solid #ececec;
-    transition: 0.2s;
-    &:hover {
-        transition: 0.2s;
-    }
-    &.red {
-        background: $RED;
-        outline-color: $RED;
-        &:hover {
-            background: $RED_DARK;
-        }
-    }
-    &.orange {
-        background: $ORANGE;
-        outline-color: $ORANGE;
-        &:hover {
-            background: $ORANGE_DARK;
-        }
-    }
-    &.yellow {
-        background: $YELLOW;
-        outline-color: $YELLOW;
-        &:hover {
-            background: $YELLOW_DARK;
-        }
-    }
-    &.green {
-        background: $GREEN;
-        outline-color: $GREEN;
-        &:hover {
-            background: $GREEN_DARK;
-        }
-    }
-    &.blue {
-        background: $BLUE;
-        outline-color: $BLUE;
-        &:hover {
-            background: $BLUE_DARK;
-        }
-    }
-    &.tint {
-        background: $TINT;
-        outline-color: $TINT;
-        &:hover {
-            background: $TINT_DARK;
-        }
-    }
-    &.outline {
+    border: 1px solid var(--tint-color);
+    background: var(--tint-color);
+    outline: none;
+    // &.red {
+    //     background: $RED;
+    //     outline-color: $RED;
+    //     &:hover {
+    //         background: $RED_DARK;
+    //     }
+    // }
+    // &.orange {
+    //     background: $ORANGE;
+    //     outline-color: $ORANGE;
+    //     &:hover {
+    //         background: $ORANGE_DARK;
+    //     }
+    // }
+    // &.yellow {
+    //     background: $YELLOW;
+    //     outline-color: $YELLOW;
+    //     &:hover {
+    //         background: $YELLOW_DARK;
+    //     }
+    // }
+    // &.green {
+    //     background: $GREEN;
+    //     outline-color: $GREEN;
+    //     &:hover {
+    //         background: $GREEN_DARK;
+    //     }
+    // }
+    // &.blue {
+    //     background: $BLUE;
+    //     outline-color: $BLUE;
+    //     &:hover {
+    //         background: $BLUE_DARK;
+    //     }
+    // }
+    // &.tint {
+    //     background: $TINT;
+    //     outline-color: $TINT;
+    //     &:hover {
+    //         background: $TINT_DARK;
+    //     }
+    // }
+    &[data-outline="true"] {
         background: transparent;
-        &.red {
-            border-color: $RED;
-            &::after {
-                color: $RED;
-            }
-            &:hover {
-                background: $RED_LIGHT;
-            }
-        }
-        &.orange {
-            border-color: $ORANGE;
-            &::after {
-                color: $ORANGE;
-            }
-            &:hover {
-                background: $ORANGE_LIGHT;
-            }
-        }
-        &.yellow {
-            border-color: $YELLOW;
-            &::after {
-                color: $YELLOW;
-            }
-            &:hover {
-                background: $YELLOW_LIGHT;
-            }
-        }
-        &.green {
-            border-color: $GREEN;
-            &::after {
-                color: $GREEN;
-            }
-            &:hover {
-                background: $GREEN_LIGHT;
-            }
-        }
-        &.blue {
-            border-color: $BLUE;
-            &::after {
-                color: $BLUE;
-            }
-            &:hover {
-                background: $BLUE_LIGHT;
-            }
-        }
-        &.tint {
-            border-color: $TINT;
-            &::after {
-                color: $TINT;
-            }
-            &:hover {
-                background: $TINT_LIGHT;
-            }
-        }
+        // &.red {
+        //     border-color: $RED;
+        //     &::after {
+        //         color: $RED;
+        //     }
+        //     &:hover {
+        //         background: $RED_LIGHT;
+        //     }
+        // }
+        // &.orange {
+        //     border-color: $ORANGE;
+        //     &::after {
+        //         color: $ORANGE;
+        //     }
+        //     &:hover {
+        //         background: $ORANGE_LIGHT;
+        //     }
+        // }
+        // &.yellow {
+        //     border-color: $YELLOW;
+        //     &::after {
+        //         color: $YELLOW;
+        //     }
+        //     &:hover {
+        //         background: $YELLOW_LIGHT;
+        //     }
+        // }
+        // &.green {
+        //     border-color: $GREEN;
+        //     &::after {
+        //         color: $GREEN;
+        //     }
+        //     &:hover {
+        //         background: $GREEN_LIGHT;
+        //     }
+        // }
+        // &.blue {
+        //     border-color: $BLUE;
+        //     &::after {
+        //         color: $BLUE;
+        //     }
+        //     &:hover {
+        //         background: $BLUE_LIGHT;
+        //     }
+        // }
+        // &.tint {
+        //     border-color: $TINT;
+        //     &::after {
+        //         color: $TINT;
+        //     }
+        //     &:hover {
+        //         background: $TINT_LIGHT;
+        //     }
+        // }
     }
     &[disabled] {
         pointer-events: none;

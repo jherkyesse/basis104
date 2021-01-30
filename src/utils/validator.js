@@ -25,6 +25,10 @@ function validateOpeNo(value = '') {
   return (/^[0-9]{0,4}((\.){0,1})[0-9]{0,3}$/g).test(value);
 }
 
+function validateCustom(value = '', regular) {
+  return regular.test(value);
+}
+
 const validationMethodMap = {
   default: () => {},
   numeric: validateNumeric,
@@ -33,6 +37,7 @@ const validationMethodMap = {
   uppercase: validateUppercase,
   lowercase: validateLowercase,
   opeNo: validateOpeNo,
+  custom: validateCustom,
 };
 
 const validationResultMap = {
@@ -43,10 +48,11 @@ const validationResultMap = {
   uppercase: 'Invalid input. Please enter uppercase.',
   lowercase: 'Invalid input. Please enter lowercase',
   opeNo: 'Invalid input. Please enter XXXX.XXX',
+  custom: 'Invalid input',
 };
 
-export function validate({ type, value }) {
-  const validation = validationMethodMap[type](value);
+export function validate({ type, value, regular }) {
+  const validation = validationMethodMap[type](value, regular);
   return validation ? '' : validationResultMap[type];
 }
 
