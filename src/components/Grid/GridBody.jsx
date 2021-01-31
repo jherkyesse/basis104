@@ -13,6 +13,7 @@ function GridBody({
   headerList,
   activeRow,
   setActiveRow,
+  columnWidthList,
 }) {
   const rowCount = data.length;
   function renderBodyCell({ columnIndex, key, rowIndex, style }) {
@@ -33,7 +34,10 @@ function GridBody({
         <div>{data[rowIndex][headerList[[columnIndex]]]}</div>
       </div>
     );
-  }
+	}
+	function getColumnWidth({ index }) {
+		return columnWidthList[index];
+	}
   return (
     <Grid
       className="gridBody"
@@ -41,7 +45,7 @@ function GridBody({
       width={width}
       height={height}
       rowHeight={rowHeight}
-      columnWidth={columnWidth}
+      columnWidth={getColumnWidth}
       onScroll={onScroll}
       rowCount={rowCount}
       columnCount={columnCount}
@@ -55,9 +59,10 @@ GridBody.propTypes = {
   width: PropTypes.number.isRequired,
   height: PropTypes.number.isRequired,
   columnCount: PropTypes.number.isRequired,
-	headerList: PropTypes.arrayOf(PropTypes.string).isRequired,
-	activeRow: PropTypes.number,
+  headerList: PropTypes.arrayOf(PropTypes.string).isRequired,
+  activeRow: PropTypes.number,
   setActiveRow: PropTypes.func.isRequired,
+  columnWidthList: PropTypes.arrayOf(PropTypes.number).isRequired,
 };
 
 GridBody.defaultProps = {

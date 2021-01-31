@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import { AiOutlineBorder, AiFillCheckSquare } from 'react-icons/ai';
 
 function CheckIcon({ checked }) {
-  if (checked) return <AiFillCheckSquare color="var(--tint-color)" size="1.5em" />;
+  if (checked)
+    return <AiFillCheckSquare color="var(--tint-color)" size="1.5em" />;
   return <AiOutlineBorder size="1.5em" />;
 }
 
@@ -16,9 +17,14 @@ function Checkbox({ disabled, label, checked, onChange }) {
     if (onChange) onChange(!checked);
   }
   return (
-    <div role="presentation" disabled={disabled} className="checkbox" onClick={onChecked}>
+    <div
+      role="presentation"
+      disabled={disabled}
+      className="checkbox"
+      onClick={onChecked}
+    >
       <CheckIcon checked={checked} />
-      <span>{label}</span>
+      {!!label && <span>{label}</span>}
     </div>
   );
 }
