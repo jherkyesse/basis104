@@ -2,45 +2,68 @@
 
 $OPACITY: 0.47;
 
-#app {
+body {
     --opacity: #{$OPACITY};
-    &.light-theme {
-        min-width: 100%;
-        min-height: 100vh;
-        --tint-color: #{$TINTCOLOR};
-        --red: #{$RED};
-        --orange: #{$ORANGE};
-        --bg-color: #{$BG_COLOR};
-        --border-color: #{$BORDER_COLOR};
-        --font-color: #{$FONT_COLOR};
-        --box-shadow-color: #{$BOX_SHADOW_COLOR};
-        --segment-color: #{$SEGMENT_COLOR};
-        --hr-color: #{$HR_COLOR};
-        --white: #{$WHITE};
-        --red-light: #{$RED_LIGHT};
-    
-        background: var(--bg-color);
-        color: var(--font-color);
-    }
+    min-width: 100%;
+    min-height: 100vh;
+    --tint-color: #{$TINTCOLOR};
+    --tint-color-light: #{$TINTCOLOR_LIGHT};
+    --red: #{$RED};
+    --orange: #{$ORANGE};
+    --yellow: #{$YELLOW};
+    --green: #{$GREEN};
+    --blue: #{$BLUE};
+    --purple: #{$PURPLE};
+    --pink: #{$PINK};
+    --bg-color: #{$BG_COLOR};
+    --tab-bg-color: #{$TAB_BG_COLOR};
+    --border-color-light: #{$BORDER_COLOR_LIGHT};
+    --border-color: #{$BORDER_COLOR};
+    --border-color-dark: #{$BORDER_COLOR_DARK};
+    --border-color-darker: #{$BORDER_COLOR_DARKER};
+    --font-color: #{$FONT_COLOR};
+    --button-font-color: #{$BUTTON_FONT_COLOR};
+    --button-outline-bg-color: #{$BUTTON_OUTLINE_BG_COLOR};
+    --button-outline-border-color: #{$BUTTON_OUTLINE_BORDER_COLOR};
+    --font-inactive-color: #{$FONT_INACTIVE_COLOR};
+    --box-shadow: #{$BOX_SHADOW};
+    --segment-color: #{$SEGMENT_COLOR};
+    --hr-color: #{$HR_COLOR};
+    --white: #{$WHITE};
+    --red-light: #{$RED_LIGHT};
+    --backdrop-color: #{$BACKDROP_COLOR};
+
+    background: var(--bg-color);
+    color: var(--font-color);
     &.dark-theme {
         min-width: 100%;
         min-height: 100vh;
         --tint-color: #{$TINTCOLOR_DARK};
+        --tint-color-light: #{$TINTCOLOR_LIGHT_DARK};
         --red: #{$RED};
         --bg-color: #{$BG_COLOR_DARK};
+        --border-color-light: #{$BORDER_COLOR_LIGHT};
         --border-color: #{$BORDER_COLOR_DARK};
+        --border-color-dark: #{$BORDER_COLOR};
+        --border-color-darker: #{$BORDER_COLOR_DARKER};
         --font-color: #{$FONT_COLOR_DARK};
-        --box-shadow-color: #{$BOX_SHADOW_COLOR_DARK};
+        --button-font-color: #{$BUTTON_FONT_COLOR_DARK};
+        --button-outline-bg-color: #{$BUTTON_OUTLINE_BG_COLOR_DARK};
+        --button-outline-border-color: #{$BUTTON_OUTLINE_BORDER_COLOR_DARK};
+        --font-inactive-color: #{$FONT_INACTIVE_COLOR_DARK};
+        --tab-bg-color: #{$TAB_BG_COLOR_DARK};
+        --box-shadow: #{$BOX_SHADOW_DARK};
         --segment-color: #{$SEGMENT_COLOR_DARK};
         --hr-color: #{$HR_COLOR_DARK};
-        --white: #{$WHITE};
+        --white: #{$BLACK};
         --red-light: #{$RED_DARK};
+        --backdrop-color: #{$BACKDROP_COLOR_DARK};
     
         background: var(--bg-color);
         color: var(--font-color);
     }
     .boxShadow {
-        box-shadow: 0 0 10px 2px var(--box-shadow-color);
+        box-shadow: var(--box-shadow);
     }
 }
 

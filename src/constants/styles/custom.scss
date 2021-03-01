@@ -1,310 +1,588 @@
+$GRID_ROW_HEIGHT: 24px;
+
 .title {
-    font-weight: bold;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  font-weight: bold;
+  & span {
     font-size: var(--title-font-size);
+    padding: var(--input-padding) 0;
+  }
 }
 .inputContainer {
+  position: relative;
+  margin-bottom: var(--segment-padding);
+  &:nth-last-child(1) {
+    margin: 0;
+  }
+  .label {
+    display: block;
+    margin: 0 0 calc(var(--segment-padding) / 2) 0;
+  }
+  span.required {
+    color: var(--red);
+  }
+  .inputErrorMessage {
+    position: absolute;
+    top: 100%;
+    margin: var(--input-padding) 0 0;
+    z-index: 3;
+    &::before {
+      content: '';
+      position: absolute;
+      border-width: 1px 0 0 1px;
+      border-style: solid;
+      border-color: var(--red);
+      transform: translateX(-50%) translateY(-50%) rotate(45deg);
+      top: 0;
+      left: 10%;
+      width: 0.6666em;
+      height: 0.6666em;
+      background: var(--red);
+      margin: var(--input-padding) 0 0 0;
+    }
+    &::after {
+      content: attr(data-label);
+      padding: var(--input-padding);
+      border: 1px solid var(--red);
+      box-shadow: var(--box-shadow);
+      border-radius: 4px;
+      color: white;
+      background: var(--red);
+      display: inline-block;
+      white-space: pre-wrap;
+      margin: var(--input-padding) 0 0;
+    }
+  }
+  .input {
     position: relative;
-    margin-bottom: var(--segment-padding);
-    &:nth-last-child(1) {
-        margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    border: 1px solid var(--border-color);
+    border-radius: 0.2rem;
+    &:hover {
+      border: 1px solid var(--border-color-dark);
     }
-    .label {
-        display: block;
-        margin: 0 0 calc(var(--segment-padding) / 2) 0;
-    }
-    span.required {
-        color: var(--red);
-    }
-    .inputErrorMessage {
+    &.focus {
+      border: 1px solid transparent;
+      &::before {
+        content: '';
         position: absolute;
-        top: 100%;
-        margin: var(--input-padding) 0 0;
-        z-index: 3;
-        &::before {
-            content: '';
-            position: absolute;
-            border-width: 1px 0 0 1px;
-            border-style: solid;
-            border-color: var(--tint-color);
-            transform: translateX(-50%) translateY(-50%) rotate(45deg);
-            top: 0;
-            left: 10%;
-            width: .6666em;
-            height: .6666em;
-            background: var(--segment-color);
-            margin: var(--input-padding) 0 0 0;
-        }
-        &::after {
-            content: attr(data-label);
-            padding: var(--input-padding);
-            border: 1px solid var(--tint-color);
-            box-shadow: 0 1px 3px 2px rgba(255, 56, 67, 0.17);
-            border-radius: 4px;
-            color: var(--tint-color);
-            background: var(--segment-color);
-            display: inline-block;
-            white-space: pre-wrap;
-            margin: var(--input-padding) 0 0;
-        }
+        top: -1px;
+        bottom: -1px;
+        left: -1px;
+        right: -1px;
+        border: 2px solid var(--tint-color);
+        border-radius: 3px;
+        pointer-events: none;
+      }
+      svg {
+        color: var(--tint-color);
+      }
     }
-    .input {
-        position: relative;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: nowrap;
-        border: 1px solid var(--border-color);
-        border-radius: 0.2rem;
-        &.focus {
-            border: 1px solid transparent;
-            &::before {
-                content: '';
-                position: absolute;
-                top: -1px;
-                bottom: -1px;
-                left: -1px;
-                right: -1px;
-                border: 2px solid var(--tint-color);
-                border-radius: 3px;
-                pointer-events: none;
-            }
-            svg {
-                color: var(--tint-color);
-            }
-        }
-        input {
-            box-sizing: border-box;
-            width: 100%;
-            font-size: var(--font-size);
-            padding: var(--input-padding);
-            outline: none;
-            border: none;
-            background: transparent;
-            color: var(--font-color);
-        }
-        svg {
-            color: var(--border-color);
-            width: var(--icon-size);
-            height: var(--icon-size);
-            margin-right: 5px;
-            cursor: pointer;
-        }
+    input {
+      box-sizing: border-box;
+      width: 100%;
+      font-size: var(--font-size);
+      padding: var(--input-padding);
+      outline: none;
+      border: none;
+      background: transparent;
+      color: var(--font-color);
     }
-    .textarea {
-        position: relative;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: nowrap;
-        border: 1px solid var(--border-color);
-        &.focus {
-            border: 1px solid transparent;
-            &::before {
-                content: '';
-                position: absolute;
-                top: -1px;
-                bottom: -1px;
-                left: -1px;
-                right: -1px;
-                border: 2px solid var(--tint-color);
-                border-radius: 3px;
-                pointer-events: none;
-            }
-            svg {
-                color: var(--tint-color);
-            }
-        }
-        textarea {
-            box-sizing: border-box;
-            width: 100%;
-            font-size: var(--font-size);
-            padding: var(--input-padding);
-            outline: none;
-            border: none;
-            resize: none;
-            background: transparent;
-            color: var(--font-color);
-        }
+    svg {
+      color: var(--border-color);
+      width: var(--icon-size);
+      height: var(--icon-size);
+      margin-right: 5px;
+      cursor: pointer;
     }
-    .selectionContainer {
-        max-height: 300px;
-        background: var(--segment-color);
-        border: 1px solid var(--tint-color);
-        box-shadow: rgba(0, 0, 0, 0.133) 0px 3.2px 7.2px 0px, rgba(0, 0, 0, 0.11) 0px 0.6px 1.8px 0px;
-        margin: 0 0 0 -1px;
-        .selection {
-            width: 100%;
-            box-sizing: border-box;
-            border-bottom: 1px solid var(--border-color);
-            padding: var(--input-padding);
-            cursor: pointer;
-            &:hover {
-                background: var(--tint-color);
-                color: #ffffff;
-            }
-            &:nth-last-child(1) {
-                border: none;
-            }
-        }
+  }
+  .textarea {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    border: 1px solid var(--border-color);
+    border-radius: 0.2rem;
+    &:hover {
+      border: 1px solid var(--border-color-dark);
     }
+    &.focus {
+      border: 1px solid transparent;
+      &::before {
+        content: '';
+        position: absolute;
+        top: -1px;
+        bottom: -1px;
+        left: -1px;
+        right: -1px;
+        border: 2px solid var(--tint-color);
+        border-radius: 3px;
+        pointer-events: none;
+      }
+      svg {
+        color: var(--tint-color);
+      }
+    }
+    textarea {
+      box-sizing: border-box;
+      width: 100%;
+      font-size: var(--font-size);
+      padding: var(--input-padding);
+      outline: none;
+      border: none;
+      resize: none;
+      background: transparent;
+      color: var(--font-color);
+    }
+  }
+  .selectionContainer {
+    &.top100 {
+      margin-top: 1px;
+      margin-bottom: 1px;
+    }
+    &.bottom100 {
+      margin-top: 0;
+      margin-bottom: 1px;
+    }
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    & .ReactVirtualized__List {
+      background: var(--segment-color);
+      // border: 1px solid var(--tint-color); // Bug in perfect-scrollbar
+      box-shadow: rgba(0, 0, 0, 0.133) 0px 3.2px 7.2px 0px,
+        rgba(0, 0, 0, 0.11) 0px 0.6px 1.8px 0px;
+      margin: 0 0 0 -1px;
+      z-index: 100000;
+    }
+    .selection {
+      width: 100%;
+      box-sizing: border-box;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      //   border-bottom: 1px solid var(--border-color);
+      padding: var(--input-padding);
+      cursor: pointer;
+      &:hover {
+        background: var(--tint-color-light);
+        color: #ffffff;
+      }
+      &.active {
+        background: var(--tint-color);
+        color: #ffffff;
+        &:hover {
+          background: var(--tint-color);
+        }
+      }
+      &:nth-last-child(1) {
+        border: none;
+      }
+    }
+  }
 }
 .tabBar {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-    border-bottom: 3px solid var(--border-color);
-    & .tab {
-        padding: var(--input-padding);
-        cursor: pointer;
-        color: var(--font-color);
-        font-size: var(--title-font-size);
-        border-bottom: 2px solid transparent;
-        &.active {
-            color: var(--tint-color);
-            border-bottom: 2px solid var(--tint-color);
-        }
-        &:hover {
-            color: var(--tint-color);
-        }
-        &[disabled] {
-            pointer-events: none;
-            opacity: var(--opacity);
-        }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--tab-bg-color);
+  & .tab {
+    padding: var(--tab-padding);
+    cursor: pointer;
+    color: var(--font-color);
+    font-size: var(--title-font-size);
+    line-height: 1.5;
+    border-bottom: 1px solid transparent;
+    &.active {
+      color: var(--tint-color);
+      font-weight: 700;
+      border-bottom: 1px solid var(--tint-color);
     }
+    &:hover {
+      color: var(--tint-color);
+    }
+    &[disabled] {
+      pointer-events: none;
+      opacity: var(--opacity);
+    }
+  }
 }
 .checkbox {
-    display: inline-flex;
-    align-items: center;
+  display: inline-flex;
+  align-items: center;
+  color: var(--font-inactive-color);
+  font-size: var(--font-size);
+  cursor: pointer;
+  padding: var(--input-padding);
+  & span {
+    margin: 0 0 0 var(--input-padding);
+  }
+  &:hover {
     color: var(--font-color);
-    font-size: var(--font-size);
-    cursor: pointer;
-    & span {
-        margin: 0 0 0 var(--input-padding);
-    }
-    opacity: 0.82;
-    &:hover {
-        opacity: 1;
-    }
+  }
 }
 .gridContainer {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    border-left: 1px solid var(--bg-color);
-    border-right: 1px solid var(--bg-color);
-    border-bottom: 1px solid var(--bg-color);
-    overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  overflow: hidden;
 }
 .selectGridContainer {
-    flex: 0 0 75px;
-    z-index: 10;
+  // flex: 0 0 75px;
+  z-index: 10;
+}
+.ps__rail-x,
+.ps__rail-y {
+  opacity: 1 !important;
+  z-index: 1000;
+  cursor: pointer;
 }
 .ReactVirtualized__Grid {
-    outline: 0;
-    &.selectGridHeader {
-        position: absolute;
-        left: 0;
-        top: 0;
-        background: var(--bg-color);
-        border-bottom: 1px solid var(--segment-color);
-        & .selectGridHeaderCell {
-            font-size: var(--grid-font-size);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0 5px;
-            box-sizing: border-box;
-            border-right: 1px solid var(--segment-color);
-            background: var(--bg-color);
-        }
+  outline: 0;
+  overflow: hidden !important;
+  &.selectGridHeader,
+  &.orderGridHeader {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: var(--border-color-darker);
+    border-bottom: 1px solid var(--border-color-dark);
+    border-right: 1px solid var(--border-color-dark);
+    & .selectGridHeaderCell,
+    & .orderGridHeaderCell {
+      font-size: var(--grid-font-size);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 5px;
+      box-sizing: border-box;
     }
-    &.selectGridFilter {
+  }
+  &.orderGridFilter {
+    width: 100%;
+    height: $GRID_ROW_HEIGHT;
+    border-right: 1px solid var(--border-color-dark);
+    border-bottom: 1px solid var(--border-color-dark);
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  &.selectGridBody,
+  &.orderGridBody {
+    position: absolute;
+    left: 0;
+    top: 0;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    & .selectGridBodyCell,
+    & .orderGridBodyCell {
+      font-size: var(--grid-font-size);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-right: 1px solid var(--border-color-dark);
+      border-bottom: 1px solid var(--border-color-dark);
+      background: var(--border-color);
+      padding: 0 5px;
+      box-sizing: border-box;
+      &.active {
+        background: var(--red-light);
+      }
+    }
+  }
+  &.gridHeader {
+    background: var(--border-color);
+    border-bottom: 1px solid var(--border-color-dark);
+    overflow: hidden;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    & .gridHeaderCell {
+      font-size: var(--grid-font-size);
+      display: flex;
+      justify-content: center;
+      padding: 0 5px;
+      box-sizing: border-box;
+      border-right: 1px solid var(--border-color-dark);
+      background: var(--border-color);
+      cursor: pointer;
+      & div {
+        height: $GRID_ROW_HEIGHT;
+        line-height: $GRID_ROW_HEIGHT;
+      }
+      & input {
+        position: absolute;
         width: 100%;
-        height: 30px;
-        border-right: 1px solid var(--bg-color);
-        border-bottom: 1px solid var(--bg-color);
-        &::-webkit-scrollbar {
-            display: none;
-        }
-    }
-    &.selectGridBody {
-        position: absolute;
+        height: $GRID_ROW_HEIGHT;
         left: 0;
+        bottom: 0;
+        box-sizing: border-box;
+        padding: 0 5px;
+        outline: 0;
+        border: none;
+        color: var(--tint-color);
+        background: var(--segment-color);
+        border-top: 1px solid var(--border-color-dark);
+      }
+      & .gridHeaderCellOrderIcon {
+        opacity: 0;
+        line-height: $GRID_ROW_HEIGHT;
+        &[data-opacity="true"] {
+          margin-left: 5px;
+          margin-right: 5px;
+          opacity: 1;
+        }
+      }
+      & .gridDragIcon {
+        position: absolute;
+        right: -4px;
         top: 0;
-        &::-webkit-scrollbar {
-            display: none;
+        width: 8px;
+        height: 100%;
+        opacity: 0.47;
+        z-index: 1000000;
+        cursor: col-resize;
+        &:hover {
+          background: var(--border-color-dark);
         }
-        & .selectGridBodyCell {
-            font-size: var(--grid-font-size);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-right: 1px solid var(--bg-color);
-            border-bottom: 1px solid var(--bg-color);
-            padding: 0 5px;
-            box-sizing: border-box;
-            &.active {
-                background: var(--red-light);
-            }
-        }
+      }
+      &[data-hover='false'] {
+        cursor: default !important;
+      }
+      &:nth-last-child(1) {
+        border-right: none;
+      }
+      & svg {
+        margin-left: 5px;
+        margin-top: 7px;
+      }
     }
-    &.gridHeader {
-        background: var(--bg-color);
-        border-bottom: 1px solid var(--segment-color);
-        overflow: hidden;
-        cursor: pointer;
-        &::-webkit-scrollbar {
-            display: none;
-        }
-        & .gridHeaderCell {
-            font-size: var(--grid-font-size);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0 5px;
-            box-sizing: border-box;
-            border-right: 1px solid var(--segment-color);
-            background: var(--bg-color);
-            &:nth-last-child(1) {
-                border-right: none;
-            }
-        }
+  }
+  &.gridFilter {
+    overflow: hidden;
+    &::-webkit-scrollbar {
+      display: none;
     }
-    &.gridFilter {
-        overflow: hidden;
-        &::-webkit-scrollbar {
-            display: none;
-        }
-        & .gridFilterCell {
-            input {
-                width: 100%;
-                height: 100%;
-                box-sizing: border-box;
-                padding: 0 5px;
-                outline: 0;
-                border-width: 0 1px 1px 0;
-                border-color: #e8e8e8;
-                border-style: solid;
-                color: var(--tint-color);
-                background: transparent;
-            }
-        }
+    & .gridFilterCell {
+      input {
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        padding: 0 5px;
+        outline: 0;
+        border-width: 0 1px 1px 0;
+        border-color: #e8e8e8;
+        border-style: solid;
+        color: var(--tint-color);
+        background: transparent;
+      }
     }
-    &.gridBody {
-        & .gridBodyCell {
-            font-size: var(--grid-font-size);
-            line-height: 1.047;
-            display: flex;
-            align-items: center;
-            border-right: 1px solid var(--bg-color);
-            border-bottom: 1px solid var(--bg-color);
-            padding: 0 5px;
-            box-sizing: border-box;
-            &.active {
-                background: var(--red-light);
-            }
+  }
+  &.gridBody {
+    &.gridExcelBody {
+      user-select: none;
+    }
+    & .gridBodyCell {
+      font-size: var(--grid-font-size);
+      line-height: 1.047;
+      display: flex;
+      align-items: center;
+      border-right: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      padding: 0 5px;
+      box-sizing: border-box;
+      &.active {
+        background: var(--red-light);
+      }
+    }
+    & .gridExcelCell {
+      height: 100%;
+      max-width: 500px;
+      box-sizing: border-box;
+      padding: 0 5px;
+      outline: 0;
+      border-width: 0 1px 1px 0;
+      border-color: #e8e8e8;
+      border-style: solid;
+      color: var(--font-color);
+      background: transparent;
+      font-size: var(--font-size);
+      line-height: $GRID_ROW_HEIGHT;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      cursor: cell;
+      // Feature: hover for more info
+      // &:hover {
+      //   width: auto !important;
+      //   text-overflow: initial;
+      //   overflow: visible;
+      //   background: var(--bg-color);
+      //   z-index: 1000000;
+      // }
+      &[data-focus="true"] {
+        border: 1px solid var(--tint-color);
+        background: var(--bg-color) !important;
+        &:focus {
+          text-overflow: initial;
+          white-space: nowrap;
+          overflow: visible;
+          z-index: 1000000;
+          background: var(--bg-color);
+          width: auto !important;
+          height: auto !important;
+          white-space: pre-wrap;
+          cursor: text;
         }
+      }
+      &[data-select="true"] {
+        background: rgba(200, 200, 200, 0.2);
+      }
+      input {
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        padding: 0 5px;
+        outline: 0;
+        border-width: 0 1px 1px 0;
+        border-color: #e8e8e8;
+        border-style: solid;
+        color: var(--font-color);
+        background: transparent;
+      }
+      div {
+        width: 100%;
+        height: 100%;
+        line-height: $GRID_ROW_HEIGHT;
+        box-sizing: border-box;
+        padding: 0 5px;
+        outline: 0;
+        border-width: 0 1px 1px 0;
+        border-color: #e8e8e8;
+        border-style: solid;
+        color: var(--font-color);
+        background: transparent;
+      }
+    }
+  }
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: var(--backdrop-color);
+  width: 100%;
+  height: 100%;
+  z-index: 1000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  & .modalContent {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    background: var(--segment-color);
+    & .modalHeader {
+      padding: var(--container-padding);
+      font-size: var(--title-font-size);
+    }
+    & .modalBody {
+      display: flex;
+      flex-direction: column;
+      padding: var(--container-padding);
+      border-bottom: 1px solid var(--border-color);
+      border-top: 1px solid var(--border-color);
+    }
+    & .modalFooter {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: var(--container-padding);
+    }
+  }
+}
+
+.contextMenu {
+  position: absolute;
+  // padding: var(--input-padding);
+  box-shadow: var(--box-shadow);
+  background: var(--bg-color);
+  border: 1px solid var(--border-color);
+  z-index: 100000000;
+  & .contextMenuSelection {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    padding: var(--input-padding);
+    border-bottom: 1px solid var(--border-color);
+    &:nth-last-child(1) {
+      border: none;
+    }
+    span {
+      margin-left: var(--input-padding);
+    }
+    &[disabled] {
+      pointer-events: none;
+    }
+    &:hover {
+      background: var(--border-color);
+      cursor: pointer;
+    }
+  }
+}
+
+.ReactVirtualized__Table__headerColumn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0;
+    height: $GRID_ROW_HEIGHT;
+}
+.ReactVirtualized__Table__row {
+    height: $GRID_ROW_HEIGHT;
+    // border-bottom: 1px solid var(--border-color);
+    & .ReactVirtualized__Table__rowColumn {
+        // border-right: 1px solid var(--border-color);
+        // height: 100%;
     }
 }
+.ReactVirtualized__Table__headerTruncatedText {
+    flex: auto;
+}
+.DragHandle {
+    flex: 0 0 16px;
+    z-index: 2;
+    cursor: col-resize;
+    color: #0085ff;
+}
+.DragHandle:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+  
+.DragHandleActive,
+.DragHandleActive:hover {
+    color: #0b6fcc;
+    z-index: 3;
+}
+  
+.DragHandleIcon {
+    flex: 0 0 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+  

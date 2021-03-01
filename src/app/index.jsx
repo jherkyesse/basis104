@@ -1,16 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocalStorage } from 'react-use';
 import {
   Button,
   Checkbox,
   Container,
   Dropdown,
+  Excel,
   Grid,
   Hr,
   Input,
   Row,
   Segment,
   TabBar,
+  Table,
   Textarea,
   Title,
 } from 'components';
@@ -343,13 +345,24 @@ const simulationRequestHeaderList = [
 export default function App() {
   const [username, setUsername] = useState('Jherk');
   const [checked, setChecked] = useState(false);
-  const [simulationRequestList, setSimulationRequestList] = useState(preSimulationRequestList);
+  const [simulationRequestList, setSimulationRequestList] = useState(
+    preSimulationRequestList
+  );
   const [theme, setTheme] = useLocalStorage('theme', 'light');
   const [activeTab, setActiveTab] = useLocalStorage('tab', 'BookingSimulation');
   const [fontSize, setFontSize] = useLocalStorage('fontSize', 'medium');
   const toggleTheme = () => setTheme(theme === 'light' ? 'dark' : 'light');
   const toggleFontSize = (fontSize) => setFontSize(fontSize);
   const onSelect = (data) => setSimulationRequestList(data);
+  useEffect(() => {
+    if (theme === 'dark') {
+      document.body.classList.remove('light-theme');
+      document.body.classList.add('dark-theme');
+    } else {
+      document.body.classList.remove('dark-theme');
+      document.body.classList.add('light-theme');
+    }
+  }, [theme]);
   return (
     <div id="app" className={`${theme}-theme ${fontSize}`}>
       <TabBar
@@ -387,6 +400,20 @@ export default function App() {
             checked={checked}
             onChange={setChecked}
             label="Check this."
+          />
+        </Segment>
+        <Segment>
+          <Excel
+            data={preSimulationRequestList}
+            headerList={simulationRequestHeaderList}
+            onChangeValue={setSimulationRequestList}
+          />
+        </Segment>
+        <Segment>
+          <Table
+            data={preSimulationRequestList}
+            height={200}
+            headerList={simulationRequestHeaderList}
           />
         </Segment>
         <Segment>

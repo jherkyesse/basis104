@@ -110,6 +110,10 @@ body {
 .fontWeightBold { font-weight: bold; }
 .borderBox { box-sizing: border-box; }
 
+hr {
+    border-top: 0px solid transparent;
+}
+
 button {
     display: inline-flex;
     align-self: flex-end;
@@ -133,13 +137,61 @@ button {
         content: attr(data-label);
         position: absolute;
         // color: var(--font-color);
-        color: var(--white);
+        color: white;
+    }
+    &.red {
+        border-color: var(--red);
+        background: var(--red);
+    }
+    &.pink {
+        border-color: var(--pink);
+        background: var(--pink);
+    }
+    &.yellow {
+        border-color: var(--yellow);
+        background: var(--yellow);
+    }
+    &.blue {
+        border-color: var(--blue);
+        background: var(--blue);
+    }
+    &.purple {
+        border-color: var(--purple);
+        background: var(--purple);
     }
     &[data-outline="true"] {
-        border-color: var(--tint-color);
+        background: var(--button-outline-bg-color);
         &::after {
-            color: var(--tint-color);
+            color: var(--red);
         }
+        &.red {
+            &::after {
+                color: var(--red);
+            }
+        }
+        &.pink {
+            &::after {
+                color: var(--pink);
+            }
+        }
+        &.yellow {
+            &::after {
+                color: var(--yellow);
+            }
+        }
+        &.blue {
+            &::after {
+                color: var(--blue);
+            }
+        }
+        &.purple {
+            &::after {
+                color: var(--purple);
+            }
+        }
+        // &::after {
+            // color: var(--button-font-color);
+        // }
     }
     &:active {
         &::after {
@@ -147,3 +199,4 @@ button {
         }
     }
 }
+
